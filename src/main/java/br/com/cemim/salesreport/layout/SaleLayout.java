@@ -29,9 +29,6 @@ public class SaleLayout extends AbstractLayout<Sale> {
         this.salesmanMap = salesmanMap;
     }
 
-    /**
-     * @todo Lançar exceção se não houver repository injetado.
-     */
     @Override
     public Sale read(String line) {
         String[] fields = line.split(FIELD_DELIMITER);
@@ -40,15 +37,18 @@ public class SaleLayout extends AbstractLayout<Sale> {
 
         String rawItems = fields[FIELD_ITEMS].substring(1, fields[FIELD_ITEMS].length() - 1);
 
-        List<Item> items = Arrays.asList(rawItems.split(",")).stream().map(rawItem -> {
-            String[] itemData = rawItem.split("-");
+        List<Item> items = Arrays.asList(rawItems.split(","))
+            .stream()
+            .map(rawItem -> {
+                String[] itemData = rawItem.split("-");
 
-            Item item = new Item();
-            item.setId(Integer.parseInt(itemData[FIELD_ITEM_ID]));
-            item.setQuantity(Integer.parseInt(itemData[FIELD_ITEM_QUANTITY]));
-            item.setPrice(Double.parseDouble(itemData[FIELD_ITEM_PRICE]));
-            return item;
-        }).collect(Collectors.toList());
+                Item item = new Item();
+                item.setId(Integer.parseInt(itemData[FIELD_ITEM_ID]));
+                item.setQuantity(Integer.parseInt(itemData[FIELD_ITEM_QUANTITY]));
+                item.setPrice(Double.parseDouble(itemData[FIELD_ITEM_PRICE]));
+                return item;
+            })
+            .collect(Collectors.toList());
 
         Sale sale = new Sale();
         sale.setId(Integer.parseInt(fields[FIELD_SALE_ID]));
