@@ -6,7 +6,9 @@ import java.util.List;
 import br.com.cemim.salesreport.business.FileReport;
 import br.com.cemim.salesreport.business.GeneralReport;
 import br.com.cemim.salesreport.processor.DirectoryProcessor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class Application {
 
     private String inputPath;
@@ -22,15 +24,15 @@ public class Application {
         List<FileReport> filesReports = new ArrayList<>();
         GeneralReport generalReport = new GeneralReport();
         DirectoryProcessor directoryProcessor = new DirectoryProcessor(inputPath, generalReport, filesReports);
-        System.out.println("Processando arquivos...\n");
+        log.info("Processando arquivos...\n");
         directoryProcessor.process();
-        System.out.println("Arquivos processados.\n");
+        log.info("Arquivos processados.\n");
 
         if (filesReports.size() > 0 && generalReport != null) {
             ReportWriter reportWriter = new ReportWriter(outputPath, generalReport, filesReports);
             reportWriter.write();
         } else {
-            System.out.println("Não há dados para gerar o relatório.");
+            log.info("Não há dados para gerar o relatório.");
         }
     }
 

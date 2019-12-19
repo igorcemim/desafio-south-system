@@ -11,7 +11,9 @@ import br.com.cemim.salesreport.business.Salesman;
 import br.com.cemim.salesreport.layout.CustomerLayout;
 import br.com.cemim.salesreport.layout.SaleLayout;
 import br.com.cemim.salesreport.layout.SalesmanLayout;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class FileProcessor {
 
 	private SalesmanLayout salesmanLayout;
@@ -57,7 +59,7 @@ public class FileProcessor {
 			try {
 				lineProcessor.process(line);
 			} catch (Exception e) {
-				System.out.println("Erro ao processar linha - " + e.getMessage());
+				log.info("Erro ao processar linha - " + e.getMessage());
 			}
 		});
 

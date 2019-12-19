@@ -43,8 +43,15 @@ public class DirectoryProcessor {
         SaleLayout saleLayout = new SaleLayout();
         saleLayout.setSalesmanMap(salesmanMap);
 
-        FileProcessor processor = new FileProcessor(salesmanLayout, customerLayout, saleLayout, salesmanMap,
-                customerMap, saleMap, generalReport);
+        FileProcessor processor = new FileProcessor(
+            salesmanLayout,
+            customerLayout,
+            saleLayout,
+            salesmanMap,
+            customerMap,
+            saleMap,
+            generalReport
+        );
 
         Files.list(Paths.get(inputPath)).filter(p -> p.toString().endsWith(".dat")).forEach(p -> {
             try {
@@ -58,7 +65,9 @@ public class DirectoryProcessor {
         });
 
         if (salesmanMap.size() > 0) {
-            Salesman worstSalesman = salesmanMap.values().stream().min(Comparator.comparingDouble(Salesman::getSales))
+            Salesman worstSalesman = salesmanMap.values()
+                    .stream()
+                    .min(Comparator.comparingDouble(Salesman::getSales))
                     .get();
             generalReport.setWorstSalesman(worstSalesman);
         }

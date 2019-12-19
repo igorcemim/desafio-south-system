@@ -1,9 +1,21 @@
+package br.com.cemim.salesreport.application;
+
 import br.com.cemim.salesreport.application.Application;
 import br.com.cemim.salesreport.application.Watcher;
 
-public class Main {
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-    public static void main(String[] args) throws Exception {
+@SpringBootApplication
+public class SpringApp implements CommandLineRunner {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringApp.class, args);
+	}
+
+    @Override
+    public void run(String... args) throws Exception {
         String home = System.getProperty("user.home");
         String inputPath = home + "/data/in";
         String outputPath = home + "/data/out";

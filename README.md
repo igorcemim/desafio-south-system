@@ -1,5 +1,14 @@
-# Como executar
+# Executar a aplicação
 ```
-./gradlew build
-java -jar build/libs/SalesReport.jar
+./gradlew bootRun
+```
+
+# Criar um JAR executável
+```
+./gradlew bootJar
+```
+
+# Executar os testes unitários
+```
+./gradlew test
 ```

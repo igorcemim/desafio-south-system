@@ -8,7 +8,9 @@ import java.util.List;
 
 import br.com.cemim.salesreport.business.FileReport;
 import br.com.cemim.salesreport.business.GeneralReport;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ReportWriter {
 
     private String outputPath;
@@ -30,7 +32,7 @@ public class ReportWriter {
             fullReport += fileReport.toString();
         }
         Files.write(Paths.get(filename), fullReport.getBytes());
-        System.out.println("Relatório gerado com sucesso no caminho: " + filename + "\n");
+        log.info("Relatório gerado com sucesso no caminho: " + filename + "\n");
     }
 
 }

@@ -29,7 +29,6 @@ public class SaleLine implements Line {
         }
         Salesman saleSalesman = sale.getSalesman();
         saleSalesman.addSale(sale.getTotal());
-        ;
         saleMap.put(sale.getId(), sale);
     }
 

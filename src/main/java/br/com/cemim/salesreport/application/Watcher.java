@@ -7,6 +7,9 @@ import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Watcher {
 
     private Application application;
@@ -24,13 +27,13 @@ public class Watcher {
         path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
         WatchKey key;
         String message = "Aguardando novos arquivos para reprocessar...\n";
-        System.out.println(message);
+        log.info(message);
 
         while ((key = watchService.take()) != null) {
             key.pollEvents();
             application.run();
             key.reset();
-            System.out.println(message);
+            log.info(message);
         }
     }
 
