@@ -1,5 +1,8 @@
 package br.com.cemim.salesreport.business;
 
+import lombok.Data;
+
+@Data
 public class FileReport {
 
     private String file;
@@ -8,28 +11,12 @@ public class FileReport {
 
     private int amountSalesman;
 
-    public String getFile() {
-        return file;
-    }
-
-    public void setFile(String file) {
-        this.file = file;
-    }
-
     public void incrementAmountClients() {
         amountClients++;
     }
 
     public void incrementAmountSalesman() {
         amountSalesman++;
-    }
-
-    public int getAmountSalesman() {
-        return amountSalesman;
-    }
-
-    public int getAmountClients() {
-        return amountClients;
     }
 
     @Override
