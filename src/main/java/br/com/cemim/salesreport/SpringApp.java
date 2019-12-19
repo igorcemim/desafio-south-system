@@ -1,4 +1,4 @@
-package br.com.cemim.salesreport.application;
+package br.com.cemim.salesreport;
 
 import br.com.cemim.salesreport.application.Application;
 import br.com.cemim.salesreport.application.Watcher;
