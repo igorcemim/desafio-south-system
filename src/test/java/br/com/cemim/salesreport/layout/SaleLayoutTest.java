@@ -1,6 +1,7 @@
 package br.com.cemim.salesreport.layout;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -8,18 +9,16 @@ import org.mockito.MockitoAnnotations;
 import br.com.cemim.salesreport.business.Sale;
 import br.com.cemim.salesreport.business.Salesman;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Map;
-
-import org.junit.Before;
 
 public class SaleLayoutTest {
 
     @Mock
     private Map<String, Salesman> salesmanMap;
 
-    @Before
+    @BeforeEach
     public void init() {
         MockitoAnnotations.initMocks(this);
     }

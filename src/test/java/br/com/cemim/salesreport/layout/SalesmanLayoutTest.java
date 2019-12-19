@@ -1,10 +1,10 @@
 package br.com.cemim.salesreport.layout;
 
-import org.junit.Test;
-
 import br.com.cemim.salesreport.business.Salesman;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 public class SalesmanLayoutTest {
 
