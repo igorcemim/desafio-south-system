@@ -1,0 +1,5 @@
+FROM adoptopenjdk/openjdk8:jdk8u222-b10
+RUN mkdir -p /app/data
+COPY ./ /app
+WORKDIR /app
+RUN /app/gradlew bootJar

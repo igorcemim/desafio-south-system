@@ -20,3 +20,6 @@ hs_err_pid*
 bin/
 build/
 target/
+
+data/out
+data/in
